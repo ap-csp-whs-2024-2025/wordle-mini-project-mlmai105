@@ -12,12 +12,18 @@
 #include <vector>    // std::vector
 
 std::vector<int> createSecret() {
-    // Write this procedure here
+    // Write this procedure here 
+    
     return {};    // replace this with your code
 }
 
-std::vector<std::string> getHint(std::vector<int> secret, std::vector<int> guess) {
+std::vector<std::string> getHint(std::vector<int> secret, std::vector<int> guess) 
+{
     // Write this procedure here
+    while(int user_guess == int secret_code)
+    {
+        void append(secret_code, user_guess)
+    }
     return {"X", "X", "X", "X"};    // replace this with your code
 }
 
@@ -28,6 +34,8 @@ bool winGame(std::vector<int> secret, std::vector<int> guess) {
 
 int main()
 {
+    srand(time(0)); 
+    int randum_num = rand() % 10; 
     // Seeding the random number generator
     // Uncomment the code when you are finished testing your program
     // and want to have the program run for real
@@ -50,7 +58,7 @@ int main()
         {
             int input;
             std::cin >> input;
-            guess.push_back(input);    // can also do append(guess, input);
+            user_guess.push_back(input);    // can also do append(guess, input);
         }
 
         hint = getHint(secret_code, user_guess);
