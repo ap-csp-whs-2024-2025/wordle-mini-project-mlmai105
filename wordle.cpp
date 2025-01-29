@@ -11,8 +11,15 @@
 #include <string>    // std::string, std::getline
 #include <vector>    // std::vector
 
-std::vector<int> createSecret() {
-    // Write this procedure here 
+std::vector<int> createSecret() 
+{
+    int randum_num = rand() % 10; 
+    int a = randum_num;
+    int b = randum_num;
+    int c = randum_num;
+    int d = randum_num;
+
+    std::cout << "Here is the secret code: " << int randum_num << std::endl;
     
     return {};    // replace this with your code
 }
@@ -22,26 +29,32 @@ std::vector<std::string> getHint(std::vector<int> secret, std::vector<int> guess
     // Write this procedure here
     while(int user_guess == int secret_code)
     {
-        void append(secret_code, user_guess)
+        void insert(secret_code, user_guess, "x")
     }
-    return {"X", "X", "X", "X"};    // replace this with your code
+    count = count + 1;
+
+    return {"X"};    // replace this with your code
 }
 
-bool winGame(std::vector<int> secret, std::vector<int> guess) {
+bool winGame(std::vector<int> secret, std::vector<int> guess)
+{
     // Write this procedure here
     return false;    // replace this with your code
 }
 
 int main()
 {
-    srand(time(0)); 
-    int randum_num = rand() % 10; 
+    
     // Seeding the random number generator
     // Uncomment the code when you are finished testing your program
     // and want to have the program run for real
     // srand(time(0));
     
     std::vector<int> secret_code = createSecret();
+         
+    srand(time(0)); 
+    int randum_num = rand() % 10; 
+   
     std::vector<int> user_guess = {};
     std::vector<std::string> hint = {};    // an empty list
 
@@ -49,6 +62,7 @@ int main()
     int num_guesses = 0;
 
     std::cout << "Welcome to Number Wordle!\n";
+    
     
     while (!winGame(secret_code, user_guess))    // while you have not won the game yet
     {
