@@ -11,27 +11,34 @@
 #include <string>    // std::string, std::getline
 #include <vector>    // std::vector
 
-std::vector<int> createSecret() 
-{
-    int randum_num = rand() % 10; 
-    int a = randum_num;
-    int b = randum_num;
-    int c = randum_num;
-    int d = randum_num;
-
-    std::cout << "Here is the secret code: " << int randum_num << std::endl;
+std::vector<int> createSecret(int size){
+    std::vector<int> code = {}
+    int count = 0 
+    while (count < 4) // repeat 4 times 
+    {
+        int val = rand() % 10;
+        append(code, val);       //code.push_back(val);
+        counter = counter = 1; 
+    } 
     
-    return {};    // replace this with your code
+    return code; 
 }
 
-std::vector<std::string> getHint(std::vector<int> secret, std::vector<int> guess) 
-{
+
+std::vector<std::string> getHint(std::vector<int> secret, std::vector<int> guess){
     // Write this procedure here
-    while(int user_guess == int secret_code)
+    std::vector<int> secret = {} 
+    std::vector<int> guess = {}
+    int curr_index = 0;
+
+    while(user_guess != code)
     {
-        void insert(secret_code, user_guess, "x")
-    }
-    count = count + 1;
+        if (curr_index < LENGTH(guess))
+        {
+            int curr_index != 
+        }
+    }   count = count + 1;
+    
 
     return {"X"};    // replace this with your code
 }
@@ -50,7 +57,8 @@ int main()
     // and want to have the program run for real
     // srand(time(0));
     
-    std::vector<int> secret_code = createSecret();
+    std::vector<int> secret_code = createSecret(4);
+    std::cout << "Here is the secret code: " << int randum_num << std::endl;
          
     srand(time(0)); 
     int randum_num = rand() % 10; 
