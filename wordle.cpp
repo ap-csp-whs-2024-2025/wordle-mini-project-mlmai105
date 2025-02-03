@@ -18,7 +18,7 @@ std::vector<int> createSecret(int size){
     while (counter < size)
     {
         int val = rand() % 10;
-        append(code, val);       //code.push_back(val);
+        append(code, val);     
         counter = counter + 1;
     } 
     
@@ -27,34 +27,40 @@ std::vector<int> createSecret(int size){
 
 
 std::vector<std::string> getHint(std::vector<int> secret, std::vector<int> guess){
-    // Write this procedure here
+   
    std::vector<std::string> hint = {};
-    int curr_index = 0;
+   int curr_index = 0;
 
     while(curr_index < length(guess))
     {
         if (guess[curr_index] != secret[curr_index])
         {
-            // append(hint, "X");
-            hint.push_back("X");
-
+            append(hint, "X");
         }
         else
         {
-            // append(hint, "O");
-            hint.push_back("O");
+            append(hint, "O");
         }
         curr_index = curr_index + 1;
     }  
-    
 
     return hint;
 }
 
-bool winGame(std::vector<int> secret, std::vector<int> guess)
+bool winGame(std::vector<int> secret, std::vector<int> guess){
+   int curr_index = 0; 
+
 {
-    // Write this procedure here
-    return false;    // replace this with your code
+    while (curr_index < length(secret)) //the same code bc hint is winning...
+    {
+        if(guess[curr_index] != secret[curr_index])
+        {
+            return false;
+        }
+        curr_index = curr_index + 1;
+    }
+    return true;
+}
 }
 
 int main()
@@ -72,7 +78,7 @@ int main()
     
     int randum_num = rand() % 10; 
    
-    std::vector<int> user_guess = {-1, -1, -1, -1};
+    std::vector<int> guess = {-1, -1, -1, -1};
     std::vector<std::string> hint = {};    // an empty list
 
     int secret_code_length = 4;
@@ -81,18 +87,18 @@ int main()
     std::cout << "Welcome to Number Wordle!\n";
     
     
-    while (!winGame(secret_code, user_guess))    // while you have not won the game yet
+    while (!winGame(secret_code, guess))    // while you have not won the game yet
     {
         std::cout << "\nEnter your guess: ";
-        hint = {};    // reset the hint for the next guess
+        guess = {};    // reset the hint for the next guess
         for (int counter = 0; counter < secret_code_length; counter = counter + 1)
         {
             int input;
             std::cin >> input;
-            user_guess.push_back(input);    // can also do append(guess, input);
+            append(guess, input);    // can also do append(guess, input);
         }
 
-        hint = getHint(secret_code, user_guess);
+        hint = getHint(secret_code, guess);
         display(hint);
         num_guesses = num_guesses + 1;
     }

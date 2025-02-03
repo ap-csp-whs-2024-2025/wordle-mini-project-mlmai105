@@ -23,6 +23,10 @@ void append(std::vector<T> &v, T const &val) {
   v.push_back(val);
 }
 
+void append(std::vector<std::string> &v, char* val) {
+  append(v, std::string(val));
+}
+
 template <typename T>
 void insert(std::vector<T> &v, int const i, T const &val) {
   if (i < 0 || i > v.size()) {
