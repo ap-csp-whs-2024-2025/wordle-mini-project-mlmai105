@@ -5,11 +5,11 @@
 */
 #include "listhelpers.hpp"
 
-#include <cstdlib>   // srand, rand
-#include <ctime>     // time
-#include <iostream>  // std::cin, std::cout
-#include <string>    // std::string, std::getline
-#include <vector>    // std::vector
+#include <cstdlib>   
+#include <ctime>     
+#include <iostream>  
+#include <string>    
+#include <vector>    
 
 std::vector<int> createSecret(int size){
     std::vector<int> code = {};
@@ -51,7 +51,7 @@ bool winGame(std::vector<int> secret, std::vector<int> guess){
    int curr_index = 0; 
 
 {
-    while (curr_index < length(secret)) //the same code bc hint is winning...
+    while (curr_index < length(secret)) 
     {
         if(guess[curr_index] != secret[curr_index])
         {
@@ -65,11 +65,6 @@ bool winGame(std::vector<int> secret, std::vector<int> guess){
 
 int main()
 {
-    
-    // Seeding the random number generator
-    // Uncomment the code when you are finished testing your program
-    // and want to have the program run for real
-    // srand(time(0));
     srand(time(0)); 
     std::vector<int> secret_code = createSecret(4);
     std::cout << "Here is the secret code: ";
@@ -79,7 +74,7 @@ int main()
     int randum_num = rand() % 10; 
    
     std::vector<int> guess = {-1, -1, -1, -1};
-    std::vector<std::string> hint = {};    // an empty list
+    std::vector<std::string> hint = {};    
 
     int secret_code_length = 4;
     int num_guesses = 0;
@@ -87,15 +82,15 @@ int main()
     std::cout << "Welcome to Number Wordle!\n";
     
     
-    while (!winGame(secret_code, guess))    // while you have not won the game yet
+    while (!winGame(secret_code, guess))   
     {
         std::cout << "\nEnter your guess: ";
-        guess = {};    // reset the hint for the next guess
+        guess = {};   
         for (int counter = 0; counter < secret_code_length; counter = counter + 1)
         {
             int input;
             std::cin >> input;
-            append(guess, input);    // can also do append(guess, input);
+            append(guess, input);    
         }
 
         hint = getHint(secret_code, guess);
